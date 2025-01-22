@@ -1,0 +1,48 @@
+@import "../../extend.css";
+
+.container {
+    padding-top: 40px;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    background-color: #F5F5F5;
+}
+
+.title{
+    font-size: 30px;
+}
+
+.subtitle{
+    font-size: 20px;
+    margin-left: 20px;
+}
+
+.text-1{
+    font-size: 20px;
+}
+
+.text-2{
+    font-size: 22px;
+}
+
+.input-1{
+    font-size: 20px;
+    background-color: white;
+    padding: 0px;
+    border-radius: 0px;
+}
+
+.btn-1{
+    height: 36px;
+    width: 36px;
+    border-radius: 18px;
+    background-color: #3BE2FF;
+    margin: 5px;
+}
+
+.btn-2{
+    height: 30px;
+    width: 30px;
+    margin: 5px;
+}
+

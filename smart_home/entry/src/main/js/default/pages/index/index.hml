@@ -1,0 +1,64 @@
+<div class="container">
+    <div class="flex justify-content">
+        <text class="title">
+            {{title}}
+        </text>
+    </div>
+
+    <div class="flex justify-end">
+        <image if="{{!startflag}}" class="btn-2" style="margin-right: 20px;" src="../../common/images/add.png"
+               onclick="startdevice"></image>
+        <image if="{{startflag}}" class="btn-2" style="margin-right: 20px;" src="../../common/images/exit.png"
+               onclick="startdevice"></image>
+    </div>
+
+    <div class="column width-100" style="margin-top: 20px;" if="{{startflag}}">
+        <text class="subtitle">
+            设备属性
+        </text>
+        <div class="card bg-white column padding-20">
+            <div class="flex border-bottom margin-10" for="{{property}}">
+                <text class="text-2 padding-bottom-5" style="width: 200px;">{{$item.name}}</text>
+                <text class="text-2 padding-bottom-5">{{properties[$item.propertyName]}}</text>
+                <text class="text-2 padding-bottom-5" style="margin-left: 2px;">{{$item.unit}}</text>
+            </div>
+        </div>
+    </div>
+
+    <div class="column width-100" style="margin-top: 20px;" if="{{startflag}}">
+        <text class="subtitle">
+            设备功能
+        </text>
+        <div class="card bg-white column padding-20">
+            <div class="flex border-bottom margin-10" for="{{command}}">
+                <text class="text-1" style="width: 100px;">{{$item.name}}</text>
+                <text class="text-1" style="width: 120px; " if="{{$item.type == 'string'}}">{{properties[$item.paraName]}}</text>
+                <input class="input-1" style="width: 120px; " type="number" maxlength="3" if="{{$item.type == 'int'}}" value="{{properties[$item.paraName]}}"
+                       onchange="doinputvalue" ></input>
+                <image class="btn-1" if="{{$item.type == 'int'}}" onclick="tocommand" data="{{$item}}"
+                       src="../../common/images/action.png">
+                </image>
+                <switch if="{{$item.type == 'string'}}" texton="on" textoff="off" onchange="tocommandscheck" data="{{$item}}"
+                        checked="{{properties[$item.paraName] == 'ON'}}">
+                </switch>
+            </div>
+        </div>
+    </div>
+
+    <dialog id="simpledialog" class="dialog-main" oncancel="cancelDialog">
+        <div class="dialog-div">
+            <div class="inner-txt">
+                <text class="txt">输入IP和端口号</text>
+            </div>
+            <div class="inner-input">
+                <input class="input-s" type="text" maxlength="15"  value="{{ipaddress}}" onchange="doinputip" placeholder="请输入IP地址"></input>
+                <input class="input-s" type="number" maxlength="4"  value="{{port}}" onchange="doinputport" placeholder="请输入端口号"></input>
+            </div>
+            <div class="inner-btn">
+                <button type="capsule" value="OK" onclick="getIPAddress" class="btn-txt"></button>
+                <button type="capsule" value="Cancel" onclick="cancel" class="btn-txt"></button>
+            </div>
+        </div>
+    </dialog>
+
+</div>

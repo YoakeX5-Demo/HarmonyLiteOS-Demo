@@ -1,0 +1,87 @@
+# Copyright (c) 2020 Nanjing Xiaoxiongpai Intelligent Technology Co., Ltd.
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+# 学员自行补充sources源文件
+static_library("Entry") {
+    sources = [
+        "ModuleSelect.c",
+
+        # 02/01 LED_Lights 路灯控制
+        "02/01_LED_Lights/a02_01_LED_Lights.c",
+
+        # 02/02 LED_Breathe 呼吸灯
+        "02/02_LED_Breathe/a02_02_LED_Breathe.c",
+
+        # 02/03 LED_Induction 光照感应
+        "02/03_LED_Induction/a02_03_LED_Induction.c",
+
+        # 02/04 IC2 气象监测
+        "02/04_IC2/a02_04_IC2.c",
+
+        # 02/06 UART_Message 数据通信
+        "02/06_UART_Message/a02_06_UART_Message.c",
+        
+        # 03 Kv_Store WIFI账号密码管理
+        "03/01_Kv_Store/b03_01_Kv_Store.c",
+
+        # 03 02_Utils_File 文件操作
+        "03/02_Utils_File/b03_02_Utils_File.c",
+
+        # 03 03_Wifi_Ap WIFI操作-热点
+        "03/03_Wifi_Ap/b03_03_Wifi_Ap.c",
+
+        # 03 04_Wifi_Sta_Connect WIFI操作-连接
+        "03/04_Wifi_Sta_Connect/b03_04_Wifi_Sta_Connect.c",
+
+        # 03 05_Tcp_Client 通过WIFI进行网络通信
+        "03/05_Tcp_Client/b03_05_Tcp_Client.c",
+
+        # 05 01_Smart_Home 智能家居
+        "05/01_Smart_Home/c05_01_app_main.c",
+        "05/01_Smart_Home/c05_01_app_deal_command.c",
+        "05/01_Smart_Home/c05_01_app_report_message.c",
+        "05/01_Smart_Home/c05_01_config_property.c",
+        "05/01_Smart_Home/wifi/wifi_connect.c",
+        "05/01_Smart_Home/sensor/E53_IA1.c",
+        "05/01_Smart_Home/nfc/NT3H.c",
+        "05/01_Smart_Home/nfc/nfc.c",
+        "05/01_Smart_Home/nfc/ndef/rtd/nfcForum.c",
+        "05/01_Smart_Home/nfc/ndef/rtd/rtdText.c",
+        "05/01_Smart_Home/nfc/ndef/rtd/rtdUri.c",
+        "05/01_Smart_Home/nfc/ndef/ndef.c",
+        "05/01_Smart_Home/profile_package/profile_package.c",
+
+    ]
+
+    include_dirs = [
+        "//utils/native/lite/include",
+        "//kernel/liteos_m/components/cmsis/2.0",
+        "//base/iot_hardware/peripheral/interfaces/kits",
+        "//foundation/communication/wifi_lite/interfaces/wifiservice",
+        "//device/bearpi/bearpi_hm_nano/sdk_liteos/include",
+        "//kernel/liteos_m/kal/cmsis", 
+        "//third_party/openssl/include/internal",
+        "//third_party/lwip/src/include/lwip",
+        # 05/01 Smart_Home
+        "//kernel/liteos_m/kal/cmsis",  
+        "//third_party/cJSON", 
+        "05/01_Smart_Home/nfc/ndef",
+        "05/01_Smart_Home/nfc/ndef/rtd/",
+        "05/01_Smart_Home/nfc",
+        "05/01_Smart_Home/sensor",
+        "05/01_Smart_Home/wifi",
+        "05/01_Smart_Home/profile_package",
+
+
+    ]
+}
